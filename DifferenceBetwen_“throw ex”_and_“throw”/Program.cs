@@ -20,6 +20,9 @@ namespace DifferenceBetwen__throw_ex__and__throw_
         {
             try
             {
+                Sort.SortList();
+                int i = 100;
+                var y=((byte)i);
                 var birthDate = new DateTime(1983, 10, 21);
                 var thisYear = DateTime.Now; 
                     //new DateTime(DateTime.Today.Year, birthDate.Month, birthDate.Day);
