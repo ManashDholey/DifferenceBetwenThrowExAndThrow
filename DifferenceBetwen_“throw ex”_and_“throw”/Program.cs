@@ -20,6 +20,45 @@ namespace DifferenceBetwen__throw_ex__and__throw_
         {
             try
             {
+                IFirst obj2 = new TestFirst();
+                obj2.Display(); // Calls IFirst.Display()
+
+                Test obj1 = new Test();
+                obj1.Display(); // Which Display() is called? 
+
+                MyClass obj = new MyClass();
+
+                // Call the general Display method
+                obj.Display();
+
+                // Call the interface-specific methods
+                ((IFirst)obj).Display();
+                ((ISecond)obj).Display();
+
+                string str = "Manash Kumar Dholey  8296152878";
+                //Using Anonymous Types
+                var myInfo = Cust(ParseData(str), new
+                {
+                    FirstName = "",
+                    MiddleName = "",
+                    LastName = "",
+                    PhoneNumber = 0.0
+                });
+                Console.WriteLine("First Name:" + myInfo.FirstName);
+                Console.WriteLine("Middele Name:" + myInfo.MiddleName);
+                Console.WriteLine("Last Name:" + myInfo.LastName);
+                Console.WriteLine("Phone number:" + myInfo.PhoneNumber);
+                //Using Tuples
+                var myInfoTuple = ParseDataUsingTuple(str);
+                Console.WriteLine("First Name:" + myInfoTuple.Item1);
+                Console.WriteLine("Middele Name:" + myInfoTuple.Item2);
+                Console.WriteLine("Last Name:" + myInfoTuple.Item3);
+                Console.WriteLine("Phone number:" + myInfoTuple.Item4);
+
+
+
+
+
                 Sort.SortList();
                 int i = 100;
                 var y=((byte)i);
@@ -29,7 +68,7 @@ namespace DifferenceBetwen__throw_ex__and__throw_
 
                 var dayOfWeek = thisYear.DayOfWeek;
                 var time= thisYear.ToString("tt", CultureInfo.InvariantCulture);
-                Guid obj = Guid.NewGuid();
+                Guid obj4 = Guid.NewGuid();
                 Program program = new Program();
                 Singleton fromTeachaer = Singleton.GetInstance;
                 fromTeachaer.PrintDetails("From Teacher");
@@ -53,18 +92,7 @@ namespace DifferenceBetwen__throw_ex__and__throw_
                 objeAuto.Set();
                 Console.ReadLine();
                 objeAuto.Set();
-                string str = "Manash Dholey Koirala 8777810980";
-                var myInfo =Cust( ParseData(str),new {
-                    FirstName = ""
-                    , MiddleName =""
-                     ,LastName =""
-                     ,PhoneNumber =0.0
-                });
-                var data1 = ParseData(str);
-                Console.WriteLine("First Name:" + myInfo.FirstName);
-                Console.WriteLine("Middele Name:" +myInfo.MiddleName);
-                Console.WriteLine("Last Name:" +myInfo.LastName );
-                Console.WriteLine("Phone number:" + myInfo.PhoneNumber);
+               
                 string strFirstName = "";
                 string strMiddleName = "";
                 string strSurname = "";
@@ -172,18 +200,18 @@ namespace DifferenceBetwen__throw_ex__and__throw_
             strFirstName = data[0];
             strMiddleName = data[1];
             strLastName = data[2];
-            PhoneNumber =Convert.ToDouble( data[3]);
+            PhoneNumber =Convert.ToDouble(data[3]);
         }
-        //static Tuple<string,string,string,double> ParseData(string strData)
-        //{
-        //    string[] data = new string[4];
-        //    data = strData.Split(' ');
-        //    return Tuple.Create<string, string, string, double>(
-        //                        data[0], 
-        //                        data[1],
-        //                        data[2], 
-        //                        Convert.ToDouble(data[3]));
-        //}
+        static Tuple<string, string, string, double> ParseDataUsingTuple(string strData)
+        {
+            string[] data = new string[4];
+            data = strData.Split(' ');
+            return Tuple.Create<string, string, string, double>(
+                                data[0],
+                                data[1],
+                                data[2],
+                                Convert.ToDouble(data[3]));
+        }
 
         static void SomeFunction(out int InsideVar)
         {

@@ -44,7 +44,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="IFirst.cs" />
+    <Compile Include="ISecond.cs" />
     <Compile Include="Maths.cs" />
+    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SealedClass.cs" />
     <Compile Include="SealedMethods.cs" />
