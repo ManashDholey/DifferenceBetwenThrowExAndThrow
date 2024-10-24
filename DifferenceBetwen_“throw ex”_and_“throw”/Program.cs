@@ -20,6 +20,21 @@ namespace DifferenceBetwen__throw_ex__and__throw_
         {
             try
             {
+                Calci calculator = new Calci();
+                Console.WriteLine("Generation: " + GC.GetGeneration(calculator));
+                Console.WriteLine("GC Count in Generation 0: " + GC.CollectionCount(0));
+                GC.Collect(0);
+                Console.WriteLine("GC Count after collection in Generation 0: " + GC.CollectionCount(0));
+
+
+                Console.WriteLine("Total Memory: " + GC.GetTotalMemory(false));
+                BaseGC objBasegc = new BaseGC();
+                Console.WriteLine("BaseGC Generation: " + GC.GetGeneration(objBasegc));
+                Console.WriteLine("Total Memory: " + GC.GetTotalMemory(false));
+
+
+                GCExample.GetMaxGeneration();
+
                 IFirst obj2 = new TestFirst();
                 obj2.Display(); // Calls IFirst.Display()
 

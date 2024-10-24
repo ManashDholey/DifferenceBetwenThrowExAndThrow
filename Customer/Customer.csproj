@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="GCExample.cs" />
     <Compile Include="IFirst.cs" />
     <Compile Include="ISecond.cs" />
     <Compile Include="Maths.cs" />
